@@ -1,0 +1,94 @@
+////////建表
+
+CREATE TABLE T1(col1 int,col2 text,col3 int ,col4 text);
+create table t2(cola text,colb int,colc text ,cold int);
+
+////////插入数据
+insert into t1 values(11 , 'a',  31 , 'fweas');
+insert into t1 values(12 , 'a',  31 , 'a');
+insert into t1 values(13 , 'b',  32 , 'aa');
+insert into t1 values(13, 'b',  32 , 'texfwt 3qq');
+insert into t1 values(-16, 'b' ,32, 'ab'); 
+insert into t1 values(-12, 'b' ,0, 'wefqt d s'); 
+insert into t1 values(-12, 'b' ,-12, 'abb'); 
+insert into t1 values(80, 'b' ,-80, 'aaaaaa');
+insert into t1 values(-80, 'b' ,80, 'aab');
+insert into t1 values(15 , 'c',  33 , 'text 3');
+insert into t1 values(15 , 'd',  34 , 'baa');
+insert into t1 values(15, 'b' ,31, 'aba'); 
+insert into t1 values(-15, 'b' ,-31, 'saaaaaaa'); 
+insert into t1 values(-15, 'b' ,0, 'baaaaa'); 
+insert into t1 values(-13, 'b' ,-13, 'aaaaaab'); 
+insert into t1 values(44,'a',44 ,'abb');
+insert into t1 values(44,'b',44 ,'aaaa');
+insert into t1 values(15,'fweas',15 ,'ca');
+insert into t1 values(44,'fweas',44 ,'cc');
+insert into t1 values(-     12,'fweas',-44 ,'aaaaaab');
+insert into t1 values(- 12,'abcdefg',-     44 ,'aca');
+insert into t1 values( -   2,'abcdefg', -     24 ,'z');
+insert into t1 values(1, 'b' ,1, 'wefqt d s');
+insert into t1 values(2, 'a' ,0, 'wefqt d s');
+insert into t1 values(2, 'b' ,2, 'wefqt d s');
+
+INSERT INTO T2 VALUES('text 1' , 20, 'text 1' , 31);
+INSERT INTO T2 VALUES('sage' ,- 20, 'sage' , 31);
+INSERT INTO T2 VALUES('aaa' , 13, 'aaa' , -34);
+INSERT INTO T2 VALUES('aaa' , 11, 'a1aa' , -  44);
+INSERT INTO T2 VALUES('abcdefg' , 16, 'abcdefg' , -  24);
+INSERT INTO T2 VALUES('aaa' , -80, 'a1aa' , 14);
+INSERT INTO T2 VALUES('sage' ,  -    44 , 'aaa' , -  44);
+INSERT INTO T2 VALUES('a1aa' , -16 , 'baaa' , -  16);
+INSERT INTO T2 VALUES('sage' , 15, 'aaa' , -  12);
+INSERT INTO T2 VALUES('aaaaaab' , 15, 'baaa' , -2);
+INSERT INTO T2 VALUES('abcdefg' , 13, 'abcdefg' , 0);
+INSERT INTO T2 VALUES('aaa' , 11, 'aaa' , 31);
+INSERT INTO T2 VALUES('cccccca' , 13, 'aaaaaab' , 44);
+INSERT INTO T2 VALUES('baaa' , - 12, 'baaa' , 32);
+INSERT INTO T2 VALUES('aaaaaab' , -  2, 'aawefowe' , 32);
+INSERT INTO T2 VALUES('aiefw' , 44, 'acdcd' , 44);
+INSERT INTO T2 VALUES('cccccca' , 80, 'aaaaaab' , 80);
+INSERT INTO T2 VALUES('aaaaaab' , 0  , 'aa' , 0);
+INSERT INTO T2 VALUES('acdcd' , 0  , 'aawefowe' , -31);
+INSERT INTO T2 VALUES('a' , 1, 'seofinowe' , 1);
+INSERT INTO T2 VALUES('b' , 2, 'seofinowe' , 0);
+INSERT INTO T2 VALUES('b' , 2, 'seofinowe' , 1);
+INSERT INTO T2 VALUES('b' , 1, 'seofinowe' , 1);
+
+/////////单表查询
+
+select * from T1;
+
+select cola, T2.cola, * ,cold from T2;
+
+select * from T1 where col1=15;
+
+select colc, cola, cold, T2.colb from T2 where cold<=t2.colb;
+
+select col1, * , t1.col3 from T1 where'b'=col2 and 13!=col1 and 'ab'<=col4;
+
+select *, t2.cola, cold from t2 where 0=t2.colb or cola!=colc and colb<-10 or t2.colb<=t2.cold and 15<colb;
+
+SELECT COL1,COL3,*,  T1.COL4 FROM T1 WHERE COL4>=COL2 OR 10<=COL1 AND COL3!=-31 AND 44<COL3 OR T1.COL2>='b' AND T1.COL1<=-12 AND COL4>='b' OR 'wefqt d s'=COL4;
+
+///////////两表连接查询
+select * from t2 ,t1;
+
+select col1,cola,col3,colc,col2,col4,colb,cold from t1,t2 where col1<=col3 and cola>colc and colb<cold and col4>=col2;
+
+select t1.col1,t2.cola, * from t2,t1 where t1.col4=t2.cola ;
+
+select * from t1 , t2 where t1.col4!=t2.cola and t1.col3<=-10 and t2.colb>=44;
+
+select * from t1,t2 where t2.colb<=t1.col3 and 11>=t2.colb and t1.col3=t1.col1 and  t1.col2>=t1.col4 and'ac b  a ba'<=cola;
+
+SELECT COL1,COLA,COL2,COLC,COL4 FROM T2,T1 WHERE T1.COL1=T2.COLB AND T2.COLC<=T1.COL2 AND T1.COL4!=T2.COLC;
+
+SELECT * FROM T1,T2 WHERE T1.COL3=T2.COLB AND T2.COLA='aaa' OR T1.COL1>T1.COL3 AND T1.COL4<'ca' AND  - 9 >COLB AND COLD!=-  44 OR 'ABC !F3'<COL4 AND T2.COLA<T1.COL4 AND T2.COLB>T2.COLD AND T1.COL1=T1.COL3 AND 44!=COL1 AND COLB>=13;
+
+////////// 性 能 测 试
+select * from t1,t2 where t1.col4='aaaaaab' and 'abcdefg'=t2.cola ;
+
+select * from t2,t1 where t1.col4='wefqt d s' and t2.colc='seofinowe' and t1.col1=t2.colb;
+
+select *,t2.cola,colb,col4,col3 from t1,t2 where t1.col1=t2.colb and t1.col4='wefqt d s' and t2.colc='seofinowe' OR t1.col4='aaaaaab' and 'abcdefg'=t2.cola ;
+
